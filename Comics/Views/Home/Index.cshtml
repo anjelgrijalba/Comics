@@ -1,0 +1,92 @@
+﻿@section scripts {
+    <script src="~/Scripts/comics.js"></script>
+}
+
+<div class="page-header">
+    <h1>CATALOGO DE COMICS</h1>
+</div>
+
+<div class="row">
+
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Comics</h2>
+            </div>
+            <div class="panel-body">
+                <ul class="list-unstyled" id="Comics">
+                    <li>
+                        <strong><span class="NombreEditorial"></span></strong>: <span class="Titulo"></span>
+                        <small><a class="detalles" href="#">Detalles</a></small>
+                        <small><a class="actualizar" href="#">Actualizar</a></small>
+                        <small><a class="borrar" href="#">Borrar</a></small>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="alert alert-danger" id="cuadroerror"><p id="textoerror"></p></div>
+    </div>
+
+    @*<div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Detail</h2>
+            </div>
+            <table class="table">
+                <tr><td>Editorial</td><td id="NombreEditorial"></td></tr>
+                <tr><td>Título</td><td id="Titulo"></td></tr>
+                <tr><td>Fecha</td><td id="Fecha"></td></tr>
+                <tr><td>Autor</td><td id="Autor"></td></tr>
+                <tr><td>Precio</td><td id="Precio"></td></tr>
+                <tr><td>Calificación</td><td id="Calificacion"></td></tr>
+            </table>
+        </div>
+    </div>*@
+
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 id="tituloform" class="panel-title">Añadir Cómic</h2>
+            </div>
+
+            <div class="panel-body">
+                <form id="formComics" class="form-horizontal" action="#">
+                    <div class="form-group">
+                        <label for="inputEditorial" class="col-sm-2 control-label">Editorial</label>
+                        <div class="col-sm-10">
+                            <select id="editoriales"></select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputTitulo" class="col-sm-2 control-label">Titulo</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputTitulo" />
+                        </div>
+
+                        <label for="inputFecha" class="col-sm-2 control-label">Fecha</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" id="inputFecha" />
+                        </div>
+
+                        <label for="inputAutor" class="col-sm-2 control-label">Autor</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputAutor" />
+                        </div>
+
+                        <label for="inputPrecio" class="col-sm-2 control-label">Precio</label>
+                        <div class="col-sm-10">
+                            <input type="number" step="any" class="form-control" id="inputPrecio" />
+                        </div>
+
+                        <label for="inputStars" class="col-sm-2 control-label">Stars</label>
+                        <div class="col-sm-10">
+                            <input type="number" step="any" class="form-control" id="inputStars" />
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

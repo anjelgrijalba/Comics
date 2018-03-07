@@ -35,7 +35,7 @@ function ComicOK(comics) {
     $.each(comics, function (key, comic) {
         $linea = $linea.clone();
 
-        $linea.find('.NombreEditorial').text(comic.editorial.Nombre);
+        $linea.find('.NombreEditorial').text(comic.Editorial.Nombre);
         $linea.find('.Titulo').text(comic.Titulo);
         $linea.find('.detalles').prop('href', url + "/" + comic.Id).click(comicdetalle);
         $linea.find('.borrar').prop('href', url + "/" + comic.Id).click(comicborrar);
@@ -141,7 +141,7 @@ function comicdetalle(e) {
     e.preventDefault();
 
     $.getJSON(this.href, function (comic) {
-        $('#AuthorName').text(comic.Author.Name);
+        $('#NombreEditorial').text(comic.Author.Name);
         $('#Titulo').text(comic.Titulo);
         $('#Fecha').text(comic.Fecha);
         $('#Autor').text(comic.Autor);

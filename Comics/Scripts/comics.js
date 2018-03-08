@@ -16,6 +16,8 @@ $(function () {
     $.getJSON(urlEditoriales, EditorialesOK).fail(fallo);
 
     $('#formComics').submit(formsubmit);
+  
+    $('.añadir').prop('href', url).click(comicotromas);
 });
 
 function EditorialesOK(editoriales) {
@@ -37,7 +39,7 @@ function ComicOK(comics) {
 
         $linea.find('.NombreEditorial').text(comic.Editorial.Nombre);
         $linea.find('.Titulo').text(comic.Titulo);
-        $linea.find('.detalles').prop('href', url + "/" + comic.Id).click(comicdetalle);
+        //$linea.find('.detalles').prop('href', url + "/" + comic.Id).click(comicdetalle);
         $linea.find('.borrar').prop('href', url + "/" + comic.Id).click(comicborrar);
         $linea.find('.actualizar').prop('href', url + "/" + comic.Id).click(comicactualizar);
 
@@ -46,6 +48,14 @@ function ComicOK(comics) {
         console.log(key, comic);
     });
 }
+function comicotromas(e) {
+    e.preventDefault();
+    //if  ($('#inputId').length)
+    //$('#inputId').remove();
+    //$('#tituloform').text('Añadir Cómic');
+    $('#formcomics').reset();
+    //limpiar();
+   }
 
 function formsubmit(e) {
     e.preventDefault();
@@ -95,9 +105,11 @@ function formsubmit(e) {
 }
 
 function limpiar() {
-    $('#inputId').remove();
+    //if  ($('#inputId').length)
+            $('#inputId').remove();
     $('#tituloform').text('Añadir Cómic');
     $('#formcomics')[0].reset();
+    
 }
 
 function comicactualizar(e) {
@@ -117,7 +129,7 @@ function comicactualizar(e) {
             $('#inputId').val(comic.Id);
         else
             $('#formcomics').
-                append('<input type="hidden" id="inputId" value="' + comic.Id + '" />');
+                append('<input type="text" id="inputId" value="' + comic.Id + '" />');
     });
 }
 
@@ -137,18 +149,18 @@ function comicborrar(e) {
     }).fail(fallo);
 }
 
-function comicdetalle(e) {
-    e.preventDefault();
+//function comicdetalle(e) {
+//    e.preventDefault();
 
-    $.getJSON(this.href, function (comic) {
-        $('#NombreEditorial').text(comic.Author.Name);
-        $('#Titulo').text(comic.Titulo);
-        $('#Fecha').text(comic.Fecha);
-        $('#Autor').text(comic.Autor);
-        $('#Precio').text(comic.Precio);
-        $('#Stars').text(comic.Calificacion);
-    });
-}
+//    $.getJSON(this.href, function (comic) {
+//        $('#NombreEditorial').text(comic.Author.Name);
+//        $('#Titulo').text(comic.Titulo);
+//        $('#Fecha').text(comic.Fecha);
+//        $('#Autor').text(comic.Autor);
+//        $('#Precio').text(comic.Precio);
+//        $('#Stars').text(comic.Calificacion);
+//    });
+//}
 
 function fallo(jqXHR, textStatus, errorThrown) {
     if (jqXHR.readyState === 0) {
